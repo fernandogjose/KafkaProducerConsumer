@@ -15,9 +15,9 @@ Brincando de Kafka, partições e paralelizando o processamento
 3. Mudar a porta (PLAINTEXT://:XXXX)
 4. Mudar o diretório: log.dirs
 5. Mudar o __consumer_offset
-5.1. default.replication.factor=3
-5.2. offsets.topic.replication.factor=3
-5.3. transaction.state.log.replication.factor=3
+  - default.replication.factor=3
+  - offsets.topic.replication.factor=3
+  - transaction.state.log.replication.factor=3
 
 ## Execução
 ![Executando o projeto](https://github.com/fernandogjose/KafkaProducerConsumer/blob/main/Images/Kafka-Executando.JPG)
