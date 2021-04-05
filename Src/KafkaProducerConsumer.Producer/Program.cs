@@ -1,7 +1,7 @@
 ﻿using Confluent.Kafka;
 using System;
 
-namespace KafkaProducerConsumer.Producer
+namespace KafkaProducerConsumer.Producer.Pedido
 {
     class Program
     {

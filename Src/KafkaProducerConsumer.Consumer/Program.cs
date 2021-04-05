@@ -1,40 +1,35 @@
 ﻿using Confluent.Kafka;
 using System;
-using System.Threading;
 
-namespace KafkaProducerConsumer.Consumer
+namespace KafkaProducerConsumer.Consumer.Pedido
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Consumer 1");
+            Console.WriteLine("Consumer Pedido");
 
             // Consumer Config
             var consumerConfig = new ConsumerConfig
             {
-                GroupId = "test-consumer-group",
+                GroupId = "consumer-pedido",
                 BootstrapServers = "localhost:9092",
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 
-            using (var c = new ConsumerBuilder<string, string>(consumerConfig).Build())
+            using var consumerBuilder = new ConsumerBuilder<string, string>(consumerConfig).Build();
+            consumerBuilder.Subscribe("fila_pedido");
+            try
             {
-                c.Subscribe("fila_pedido");
-                var cts = new CancellationTokenSource();
-
-                try
+                while (true)
                 {
-                    while (true)
-                    {
-                        var message = c.Consume(cts.Token);
-                        Console.WriteLine($"Key: {message.Message.Key}, Message: {message.Message.Value} recebida de {message.TopicPartitionOffset}");
-                    }
+                    var message = consumerBuilder.Consume();
+                    Console.WriteLine($"Key: {message.Message.Key}, Message: {message.Message.Value} recebida de {message.TopicPartitionOffset}");
                 }
-                catch (OperationCanceledException operationCanceledException)
-                {
-                    c.Close();
-                }
+            }
+            catch (OperationCanceledException)
+            {
+                consumerBuilder.Close();
             }
         }
     }
