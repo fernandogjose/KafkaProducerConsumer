@@ -10,4 +10,4 @@ Brincando de Kafka, partições e paralelizando o processamento
 * Detalhes dos topics: bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe
 
 ## Execução
-![Executando o projeto](/images/Kafka-Executando.JPG)
+![Executando o projeto](https://github.com/fernandogjose/KafkaProducerConsumer/blob/main/Images/Kafka-Executando.JPG)
