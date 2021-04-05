@@ -12,7 +12,7 @@ Brincando de Kafka, partições e paralelizando o processamento
 ## Passos para replicar
 1. Crie um novo config/server-properties
 2. Mudar o broker.id
-3. Mudar a porta (PLAINTEXT://:XXXX)
+3. Mudar a porta "PLAINTEXT://:XXXX" (O ideal é ter várias máquinas e ai pode deixar a mesma porta)
 4. Mudar o diretório: log.dirs
 5. Mudar o __consumer_offset
     1. default.replication.factor=3
