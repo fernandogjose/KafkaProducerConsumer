@@ -1,5 +1,5 @@
 # KafkaProducerConsumer
-Brincando de Kafka, partições e paralelizando o processamento
+Brincando de Kafka, partições, réplicas e paralelizando o processamento
 
 ## Comandos bacanas
 
