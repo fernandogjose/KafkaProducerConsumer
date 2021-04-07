@@ -24,7 +24,8 @@ namespace KafkaProducerConsumer.Consumer.Pedido
                 while (true)
                 {
                     var message = consumerBuilder.Consume();
-                    Console.WriteLine($"Key: {message.Message.Key}, Message: {message.Message.Value} recebida de {message.TopicPartitionOffset}");
+                    //Console.WriteLine($"Key: {message.Message.Key}, Message: {message.Message.Value} recebida de {message.TopicPartitionOffset}");
+                    Console.WriteLine($"Key: {message.Message.Key}, recebida de {message.TopicPartitionOffset}");
                 }
             }
             catch (OperationCanceledException)
