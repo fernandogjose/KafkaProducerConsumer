@@ -1,5 +1,5 @@
 # KafkaProducerConsumer
-Brincando de Kafka, partições e paralelizando o processamento
+Brincando de Kafka, partições, réplicas e paralelizando o processamento
 
 ## Comandos bacanas
 
@@ -8,6 +8,16 @@ Brincando de Kafka, partições e paralelizando o processamento
 * Arquivo de configuração: config/server.properties
 * Alterar a quantidade de partições do topic: bin/kafka-topics.sh --alter --zookeeper localhost:2181 --topic fila_pedido --partitions 3
 * Detalhes dos topics: bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe
+
+## Passos para replicar
+1. Crie um novo config/server-properties
+2. Mudar o broker.id
+3. Mudar a porta "PLAINTEXT://:XXXX" (O ideal é ter várias máquinas e ai pode deixar a mesma porta)
+4. Mudar o diretório: log.dirs
+5. Mudar o __consumer_offset
+    1. default.replication.factor=3
+    2. offsets.topic.replication.factor=3
+    3. transaction.state.log.replication.factor=3
 
 ## Execução
 ![Executando o projeto](https://github.com/fernandogjose/KafkaProducerConsumer/blob/main/Images/Kafka-Executando.JPG)
