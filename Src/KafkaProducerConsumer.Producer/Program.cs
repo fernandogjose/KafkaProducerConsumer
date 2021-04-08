@@ -24,7 +24,7 @@ namespace KafkaProducerConsumer.Producer.Pedido
                 // Producer
                 for (int i = 0; i < 50; i++)
                 {
-                    var SendMessageByKafkaResponse = SendMessageByKafka($"{1}-{DateTime.Now:dd-MM-yyyy--mmss}", response.Content);
+                    var SendMessageByKafkaResponse = SendMessageByKafka($"{i}-{DateTime.Now:dd-MM-yyyy--mmss}", response.Content);
                     Console.WriteLine($"Mensagem enviada com sucesso - {SendMessageByKafkaResponse}");
                 }
 
@@ -37,7 +37,7 @@ namespace KafkaProducerConsumer.Producer.Pedido
 
         private static string SendMessageByKafka(string key, string message)
         {
-            var config = new ProducerConfig { BootstrapServers = "localhost:9092" };
+            var config = new ProducerConfig { BootstrapServers = "localhost:9093" };
             using (var producer = new ProducerBuilder<string, string>(config).Build())
             {
                 try

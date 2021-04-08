@@ -13,7 +13,7 @@ namespace KafkaProducerConsumer.Consumer.Log
             var consumerConfig = new ConsumerConfig
             {
                 GroupId = "consumer-log",
-                BootstrapServers = "localhost:9092",
+                BootstrapServers = "localhost:9093",
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 
